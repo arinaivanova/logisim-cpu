@@ -187,44 +187,6 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
     </comp>
     <comp lib="7" loc="(170,50)" name="and"/>
   </circuit>
-  <circuit name="d-latch-tmp">
-    <a name="circuit" val="d-latch-tmp"/>
-    <a name="clabel" val=""/>
-    <a name="clabelup" val="east"/>
-    <a name="clabelfont" val="SansSerif plain 12"/>
-    <wire from="(130,100)" to="(160,100)"/>
-    <wire from="(70,50)" to="(160,50)"/>
-    <wire from="(270,70)" to="(290,70)"/>
-    <wire from="(290,70)" to="(310,70)"/>
-    <wire from="(70,70)" to="(90,70)"/>
-    <wire from="(200,110)" to="(220,110)"/>
-    <wire from="(220,80)" to="(240,80)"/>
-    <wire from="(150,120)" to="(160,120)"/>
-    <wire from="(290,70)" to="(290,150)"/>
-    <wire from="(150,150)" to="(290,150)"/>
-    <wire from="(90,100)" to="(100,100)"/>
-    <wire from="(90,70)" to="(160,70)"/>
-    <wire from="(200,60)" to="(240,60)"/>
-    <wire from="(150,120)" to="(150,150)"/>
-    <wire from="(220,80)" to="(220,110)"/>
-    <wire from="(90,70)" to="(90,100)"/>
-    <comp lib="7" loc="(270,70)" name="or"/>
-    <comp lib="0" loc="(70,50)" name="Pin">
-      <a name="tristate" val="false"/>
-    </comp>
-    <comp lib="0" loc="(70,70)" name="Pin">
-      <a name="tristate" val="false"/>
-    </comp>
-    <comp lib="7" loc="(200,60)" name="and"/>
-    <comp lib="7" loc="(130,100)" name="not"/>
-    <comp lib="7" loc="(200,110)" name="and"/>
-    <comp lib="0" loc="(310,70)" name="Pin">
-      <a name="facing" val="west"/>
-      <a name="output" val="true"/>
-      <a name="tristate" val="false"/>
-      <a name="labelloc" val="east"/>
-    </comp>
-  </circuit>
   <circuit name="8-bit-reg">
     <a name="circuit" val="8-bit-reg"/>
     <a name="clabel" val=""/>
