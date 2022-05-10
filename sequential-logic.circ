@@ -4,8 +4,8 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
 <lib desc="#Wiring" name="0">
     <tool name="Splitter">
       <a name="facing" val="west"/>
-      <a name="fanout" val="8"/>
-      <a name="incoming" val="1"/>
+      <a name="fanout" val="4"/>
+      <a name="incoming" val="4"/>
     </tool>
     <tool name="Pin">
       <a name="width" val="4"/>
@@ -36,6 +36,7 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
     </tool>
   </lib>
   <lib desc="file#basic-gates.circ" name="7"/>
+  <lib desc="file#combinatorial-logic.circ" name="8"/>
   <main name="rs-latch"/>
   <options>
     <a name="gateUndefined" val="ignore"/>
@@ -104,12 +105,10 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
       <a name="tristate" val="false"/>
       <a name="label" val="s"/>
     </comp>
-    <comp lib="7" loc="(170,170)" name="nor"/>
     <comp lib="0" loc="(80,70)" name="Pin">
       <a name="tristate" val="false"/>
       <a name="label" val="r"/>
     </comp>
-    <comp lib="7" loc="(170,80)" name="nor"/>
     <comp lib="0" loc="(220,80)" name="Pin">
       <a name="facing" val="west"/>
       <a name="output" val="true"/>
@@ -124,6 +123,8 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
       <a name="label" val="not out"/>
       <a name="labelloc" val="east"/>
     </comp>
+    <comp lib="7" loc="(170,170)" name="nor"/>
+    <comp lib="7" loc="(170,80)" name="nor"/>
   </circuit>
   <circuit name="d-latch">
     <a name="circuit" val="d-latch"/>
@@ -155,6 +156,8 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
     <wire from="(120,40)" to="(130,40)"/>
     <wire from="(180,70)" to="(180,100)"/>
     <comp loc="(240,50)" name="rs-latch"/>
+    <comp lib="7" loc="(170,50)" name="and"/>
+    <comp lib="7" loc="(120,40)" name="not"/>
     <comp lib="7" loc="(170,100)" name="and"/>
     <comp lib="0" loc="(260,50)" name="Pin">
       <a name="facing" val="west"/>
@@ -170,7 +173,6 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
       <a name="tristate" val="false"/>
       <a name="label" val="load"/>
     </comp>
-    <comp lib="7" loc="(120,40)" name="not"/>
     <comp lib="6" loc="(203,36)" name="Text">
       <a name="text" val="reset"/>
     </comp>
@@ -185,7 +187,6 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
       <a name="tristate" val="false"/>
       <a name="label" val="in"/>
     </comp>
-    <comp lib="7" loc="(170,50)" name="and"/>
   </circuit>
   <circuit name="8-bit-reg">
     <a name="circuit" val="8-bit-reg"/>
@@ -293,7 +294,6 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
     </comp>
     <comp loc="(290,150)" name="d-latch"/>
     <comp loc="(290,70)" name="d-latch"/>
-    <comp lib="7" loc="(210,90)" name="and"/>
     <comp lib="0" loc="(120,100)" name="Pin">
       <a name="tristate" val="false"/>
       <a name="label" val="wr"/>
@@ -321,6 +321,7 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
       <a name="incoming" val="8"/>
       <a name="appear" val="right"/>
     </comp>
+    <comp lib="7" loc="(210,90)" name="and"/>
     <comp lib="6" loc="(52,438)" name="Text">
       <a name="text" val="else:"/>
     </comp>
