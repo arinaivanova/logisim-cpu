@@ -6,6 +6,7 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
       <a name="facing" val="west"/>
       <a name="fanout" val="4"/>
       <a name="incoming" val="4"/>
+      <a name="appear" val="right"/>
     </tool>
     <tool name="Pin">
       <a name="width" val="4"/>
@@ -13,7 +14,13 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
     </tool>
   </lib>
   <lib desc="#Gates" name="1">
+    <tool name="AND Gate">
+      <a name="inputs" val="3"/>
+    </tool>
     <tool name="NAND Gate">
+      <a name="inputs" val="2"/>
+    </tool>
+    <tool name="NOR Gate">
       <a name="inputs" val="2"/>
     </tool>
   </lib>
@@ -37,6 +44,7 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
   </lib>
   <lib desc="file#basic-gates.circ" name="7"/>
   <lib desc="file#combinatorial-logic.circ" name="8"/>
+  <lib desc="file#alu.circ" name="9"/>
   <main name="rs-latch"/>
   <options>
     <a name="gateUndefined" val="ignore"/>
@@ -60,17 +68,20 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
     <sep/>
     <tool lib="0" name="Pin">
       <a name="tristate" val="false"/>
-      <a name="label" val="wr"/>
+      <a name="label" val="k"/>
     </tool>
     <tool lib="0" name="Pin">
       <a name="facing" val="west"/>
       <a name="output" val="true"/>
-      <a name="width" val="4"/>
+      <a name="width" val="2"/>
       <a name="tristate" val="false"/>
+      <a name="label" val="out"/>
       <a name="labelloc" val="east"/>
     </tool>
     <tool lib="1" name="NOT Gate"/>
-    <tool lib="1" name="AND Gate"/>
+    <tool lib="1" name="AND Gate">
+      <a name="inputs" val="3"/>
+    </tool>
     <tool lib="1" name="OR Gate"/>
   </toolbar>
   <circuit name="rs-latch">
@@ -488,7 +499,7 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
     <wire from="(310,180)" to="(310,240)"/>
     <wire from="(240,180)" to="(310,180)"/>
     <wire from="(410,270)" to="(410,390)"/>
-    <comp lib="8" loc="(240,250)" name="1:4_4-bit_mux"/>
+    <comp lib="8" loc="(470,250)" name="4:1_4-bit_mux"/>
     <comp lib="0" loc="(180,160)" name="Pin">
       <a name="width" val="2"/>
       <a name="tristate" val="false"/>
@@ -514,12 +525,13 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
     <comp lib="6" loc="(129,24)" name="Text">
       <a name="text" val="LOGIC:"/>
     </comp>
-    <comp lib="8" loc="(240,180)" name="1:4_1-bit_mux"/>
+    <comp lib="8" loc="(240,250)" name="1:4_4-bit_mux"/>
     <comp lib="0" loc="(180,260)" name="Pin">
       <a name="width" val="4"/>
       <a name="tristate" val="false"/>
       <a name="label" val="in"/>
     </comp>
+    <comp lib="8" loc="(240,180)" name="1:4_1-bit_mux"/>
     <comp lib="6" loc="(371,211)" name="Text">
       <a name="text" val="each m=4 bits"/>
     </comp>
@@ -534,7 +546,6 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
     <comp lib="6" loc="(147,48)" name="Text">
       <a name="text" val="if clk &amp; wr[i]:"/>
     </comp>
-    <comp lib="8" loc="(470,250)" name="4:1_4-bit_mux"/>
     <comp lib="6" loc="(516,230)" name="Text">
       <a name="text" val="1 4-bit output"/>
     </comp>
@@ -557,5 +568,144 @@ This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
     <comp lib="6" loc="(47,24)" name="Text">
       <a name="text" val="size: n=4"/>
     </comp>
+  </circuit>
+  <circuit name="2-bit_counter">
+    <a name="circuit" val="2-bit_counter"/>
+    <a name="clabel" val=""/>
+    <a name="clabelup" val="east"/>
+    <a name="clabelfont" val="SansSerif plain 12"/>
+    <appear>
+      <rect fill="none" height="30" stroke="#000000" width="40" x="50" y="90"/>
+      <text font-family="SansSerif" font-size="10" text-anchor="middle" x="69" y="107">2-bit</text>
+      <text font-family="SansSerif" font-size="10" text-anchor="middle" x="64" y="114">cnt</text>
+      <circ-port height="8" pin="150,90" width="8" x="46" y="96"/>
+      <circ-port height="8" pin="150,120" width="8" x="46" y="106"/>
+      <circ-port height="10" pin="340,40" width="10" x="85" y="95"/>
+      <circ-anchor facing="east" height="6" width="6" x="87" y="97"/>
+    </appear>
+    <wire from="(230,80)" to="(230,90)"/>
+    <wire from="(170,100)" to="(170,120)"/>
+    <wire from="(170,80)" to="(170,100)"/>
+    <wire from="(250,100)" to="(250,120)"/>
+    <wire from="(250,80)" to="(250,100)"/>
+    <wire from="(150,90)" to="(180,90)"/>
+    <wire from="(230,90)" to="(260,90)"/>
+    <wire from="(310,60)" to="(310,100)"/>
+    <wire from="(150,120)" to="(170,120)"/>
+    <wire from="(220,100)" to="(240,100)"/>
+    <wire from="(240,50)" to="(240,100)"/>
+    <wire from="(170,120)" to="(250,120)"/>
+    <wire from="(300,100)" to="(310,100)"/>
+    <wire from="(310,60)" to="(320,60)"/>
+    <wire from="(240,50)" to="(320,50)"/>
+    <wire from="(170,100)" to="(180,100)"/>
+    <wire from="(170,80)" to="(180,80)"/>
+    <wire from="(220,80)" to="(230,80)"/>
+    <wire from="(250,100)" to="(260,100)"/>
+    <wire from="(250,80)" to="(260,80)"/>
+    <comp lib="4" loc="(220,80)" name="J-K Flip-Flop"/>
+    <comp lib="4" loc="(300,80)" name="J-K Flip-Flop"/>
+    <comp lib="0" loc="(340,40)" name="Pin">
+      <a name="facing" val="west"/>
+      <a name="output" val="true"/>
+      <a name="width" val="2"/>
+      <a name="tristate" val="false"/>
+      <a name="label" val="out"/>
+      <a name="labelloc" val="east"/>
+    </comp>
+    <comp lib="0" loc="(150,120)" name="Pin">
+      <a name="tristate" val="false"/>
+      <a name="label" val="en"/>
+    </comp>
+    <comp lib="0" loc="(150,90)" name="Pin">
+      <a name="tristate" val="false"/>
+      <a name="label" val="clk"/>
+    </comp>
+    <comp lib="0" loc="(340,40)" name="Splitter">
+      <a name="facing" val="west"/>
+    </comp>
+  </circuit>
+  <circuit name="4-bit_counter">
+    <a name="circuit" val="4-bit_counter"/>
+    <a name="clabel" val=""/>
+    <a name="clabelup" val="east"/>
+    <a name="clabelfont" val="SansSerif plain 12"/>
+    <appear>
+      <rect fill="none" height="30" stroke="#000000" width="40" x="50" y="90"/>
+      <text font-family="SansSerif" font-size="10" text-anchor="middle" x="69" y="106">4-bit</text>
+      <text font-family="SansSerif" font-size="10" text-anchor="middle" x="66" y="114">cnt</text>
+      <circ-port height="8" pin="150,90" width="8" x="46" y="96"/>
+      <circ-port height="8" pin="150,120" width="8" x="46" y="106"/>
+      <circ-port height="10" pin="510,50" width="10" x="85" y="95"/>
+      <circ-anchor facing="east" height="6" width="6" x="87" y="97"/>
+    </appear>
+    <wire from="(400,30)" to="(400,100)"/>
+    <wire from="(240,10)" to="(490,10)"/>
+    <wire from="(230,80)" to="(230,90)"/>
+    <wire from="(310,80)" to="(310,90)"/>
+    <wire from="(390,80)" to="(390,90)"/>
+    <wire from="(330,80)" to="(330,100)"/>
+    <wire from="(330,100)" to="(330,120)"/>
+    <wire from="(410,80)" to="(410,100)"/>
+    <wire from="(410,100)" to="(410,120)"/>
+    <wire from="(320,20)" to="(490,20)"/>
+    <wire from="(320,20)" to="(320,100)"/>
+    <wire from="(170,100)" to="(170,120)"/>
+    <wire from="(170,80)" to="(170,100)"/>
+    <wire from="(250,100)" to="(250,120)"/>
+    <wire from="(250,80)" to="(250,100)"/>
+    <wire from="(240,10)" to="(240,100)"/>
+    <wire from="(150,90)" to="(180,90)"/>
+    <wire from="(400,30)" to="(490,30)"/>
+    <wire from="(230,90)" to="(260,90)"/>
+    <wire from="(310,90)" to="(340,90)"/>
+    <wire from="(390,90)" to="(420,90)"/>
+    <wire from="(300,100)" to="(320,100)"/>
+    <wire from="(380,100)" to="(400,100)"/>
+    <wire from="(460,100)" to="(480,100)"/>
+    <wire from="(150,120)" to="(170,120)"/>
+    <wire from="(220,100)" to="(240,100)"/>
+    <wire from="(410,100)" to="(420,100)"/>
+    <wire from="(410,80)" to="(420,80)"/>
+    <wire from="(480,40)" to="(490,40)"/>
+    <wire from="(170,120)" to="(250,120)"/>
+    <wire from="(300,80)" to="(310,80)"/>
+    <wire from="(330,100)" to="(340,100)"/>
+    <wire from="(330,80)" to="(340,80)"/>
+    <wire from="(250,120)" to="(330,120)"/>
+    <wire from="(380,80)" to="(390,80)"/>
+    <wire from="(170,100)" to="(180,100)"/>
+    <wire from="(170,80)" to="(180,80)"/>
+    <wire from="(220,80)" to="(230,80)"/>
+    <wire from="(250,100)" to="(260,100)"/>
+    <wire from="(250,80)" to="(260,80)"/>
+    <wire from="(330,120)" to="(410,120)"/>
+    <wire from="(480,40)" to="(480,100)"/>
+    <comp lib="0" loc="(150,120)" name="Pin">
+      <a name="tristate" val="false"/>
+      <a name="label" val="en"/>
+    </comp>
+    <comp lib="0" loc="(510,50)" name="Splitter">
+      <a name="facing" val="west"/>
+      <a name="fanout" val="4"/>
+      <a name="incoming" val="4"/>
+      <a name="appear" val="right"/>
+    </comp>
+    <comp lib="4" loc="(300,80)" name="J-K Flip-Flop"/>
+    <comp lib="0" loc="(150,90)" name="Pin">
+      <a name="tristate" val="false"/>
+      <a name="label" val="clk"/>
+    </comp>
+    <comp lib="0" loc="(510,50)" name="Pin">
+      <a name="facing" val="west"/>
+      <a name="output" val="true"/>
+      <a name="width" val="4"/>
+      <a name="tristate" val="false"/>
+      <a name="label" val="out"/>
+      <a name="labelloc" val="east"/>
+    </comp>
+    <comp lib="4" loc="(220,80)" name="J-K Flip-Flop"/>
+    <comp lib="4" loc="(460,80)" name="J-K Flip-Flop"/>
+    <comp lib="4" loc="(380,80)" name="J-K Flip-Flop"/>
   </circuit>
 </project>
